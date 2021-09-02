@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="Beckhoff Automation GmbH" productName="TwinCAT PLC Control" productVersion="3.5.13.20" creationDateTime="2021-09-02T10:04:16.8056045" />
+  <contentHeader name="PLC" modificationDateTime="2021-09-02T10:04:16.8120124">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation />
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous>
+      <pou name="BFB_Trigger" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="bIn">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">触发位</xhtml>
+              </documentation>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="bTrig">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">边沿交替输出</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bRiseTrig">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">上升沿输出</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bFallTrig">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">下降沿输出</xhtml>
+              </documentation>
+            </variable>
+          </outputVars>
+          <localVars>
+            <variable name="fbTrigR">
+              <type>
+                <derived name="R_TRIG" />
+              </type>
+              <addData>
+                <data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
+                  <Attributes>
+                    <Attribute Name="hide" Value="" />
+                  </Attributes>
+                </data>
+              </addData>
+            </variable>
+            <variable name="fbTrigF">
+              <type>
+                <derived name="F_TRIG" />
+              </type>
+              <addData>
+                <data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
+                  <Attributes>
+                    <Attribute Name="hide" Value="" />
+                  </Attributes>
+                </data>
+              </addData>
+            </variable>
+          </localVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">-----------------------------------------版本信息-----------------------------------------
+第一版本：		V1.0.0
+功能说明：		边缘触发功能块集合
+开发者：		Long.Yun
+开发时间：		2021.09.02
+
+变更版本：
+版本			变更者		变更时间		变更说明
+------------------------------------------------------------------------------------------</xhtml>
+          </documentation>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">fbTrigR(CLK := bIn, Q =&gt;bRiseTrig);
+
+fbTrigF(CLK := bIn, Q =&gt; bFallTrig);
+
+bTrig := bRiseTrig OR bFallTrig;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+            <InterfaceAsPlainText>
+              <xhtml xmlns="http://www.w3.org/1999/xhtml">(*-----------------------------------------版本信息-----------------------------------------
+第一版本：		V1.0.0
+功能说明：		边缘触发功能块集合
+开发者：		Long.Yun
+开发时间：		2021.09.02
+
+变更版本：
+版本			变更者		变更时间		变更说明
+------------------------------------------------------------------------------------------*)
+FUNCTION_BLOCK BFB_Trigger
+VAR_INPUT
+	//触发位
+	bIn			:BOOL;
+END_VAR
+
+VAR_OUTPUT
+	//边沿交替输出
+	bTrig		:BOOL;
+	//上升沿输出
+	bRiseTrig	:BOOL;
+	//下降沿输出
+	bFallTrig	:BOOL;
+END_VAR
+
+VAR
+	{attribute 'hide'}
+	fbTrigR		:R_TRIG;
+	{attribute 'hide'}
+	fbTrigF		:F_TRIG;
+END_VAR
+</xhtml>
+            </InterfaceAsPlainText>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>2c50c032-f83a-43cf-aaac-4efc6fe4dc55</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="BFB_Trigger" ObjectId="2c50c032-f83a-43cf-aaac-4efc6fe4dc55" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

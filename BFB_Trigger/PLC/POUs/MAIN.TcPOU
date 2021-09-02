@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{5b321eb8-c770-40bd-8492-e3a6647735c9}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbTrig_Test				:BFB_Trigger;
+	bTest					:BOOL;
+	i						:INT;
+	j						:INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbTrig_Test(bIn := bTest);
+
+IF fbTrig_Test.bRiseTrig THEN
+	i := i + 1;
+ELSIF fbTrig_Test.bFallTrig THEN
+	i := i - 1;
+END_IF
+
+IF fbTrig_Test.bTrig THEN
+	j := j + 1;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="20" Count="1" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
